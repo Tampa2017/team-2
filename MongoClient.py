@@ -61,12 +61,19 @@ def GetTrash():
 def GetNotTrash(): #needs to be finished
     client = MongoClient('127.0.0.1', 27017)
     db = client.Poseidon
-    collection = db.items.positive
-    good_table = collection.find({"name":"reef"})
-    with open('good.json', 'w') as file:
-        json.dump(good_table, file)
-    file.close()
+    collection = db.items
+    collection = collection.positive
+    nottrash_table = collection.find({'name': 'Artificial Reef'})
+    nottrashstr = None
 
+    for document in nottrash_table:
+        nottrashstr = pprint.pformat(document)
+        # print type(trashstr)
+    with open('good.json', 'w') as file:
+        nottrashstr.encode('utf-8')
+        file.write(nottrashstr)
+    file.close()
+    client.close()
     # we can store images on our server and just send the link from the db
     #arr = {'name', 'description', 'image'}
     #toPost = trash_table[arr]

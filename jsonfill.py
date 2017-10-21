@@ -8,5 +8,5 @@ while(True):
 
     GetFish()
     GetTrash()
-    #GetNotTrash()
+    GetNotTrash()
     time.sleep(15)
