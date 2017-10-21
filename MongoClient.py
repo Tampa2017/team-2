@@ -9,10 +9,9 @@ def GetFish():
     fish_table = collection.find({"name":"Reef Shark"})
     fishstr = None
     for document in fish_table:
-        fishstr = json.loads(document)
+        fishstr = pprint.pformat(document)
     with open('fish.json', 'w') as file:
-        fishstr = fishstr
-        print json.dump(fishstr, file)
+        json.dump(fishstr, file)
     file.close()
 
     #we can store images on our server and just send the link from the db
