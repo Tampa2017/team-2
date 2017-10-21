@@ -34,7 +34,7 @@ def GetTrash():
     choose = (random.randint(1, 100))%3
     name = ' '
     if choose == 1: name = 'Plastic Bottles'
-    elif choose == 2: name = 'Plastic Bag'
+    elif choose == 2: name = 'Plastic Bags'
     else: name = 'Fishing Net'
     db = client.Poseidon
     collection = db.items
