@@ -5,9 +5,9 @@ import pprint
 def GetFish():
     #pymongo.connection('localhost', 27017)
     client = MongoClient('127.0.0.1', 27017)
-    db = client.poseidon
+    db = client.Poseidon
     collection = db.fish
-    fish_table = collection.find({'name':"reef"})
+    fish_table = collection.find({"fish":"Goblin Shark"})
     fishstr = None
     for document in fish_table:
         print 'hi'
