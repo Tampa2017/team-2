@@ -1,0 +1,39 @@
+<if test="defined(data.symbol.groupTitle)">
+	<h3>{+ data.symbol.groupTitle +}</h3>
+</if>
+<div id="{+ data.id +}" class="member">
+<div class="member-link">
+<a name="{+ data.id +}" href="#{+ data.id +}"><tt><b>{+ data.name +}</b></tt></a>
+</div>
+<div class="member-description hidden">
+<if test="data.symbol.type">
+<div class="member-text">
+	{+ data.description +}
+	<if test="data.symbol.readOnly">
+		<p>Read only.</p>
+	</if>
+	<if test="data.symbol.values">
+		<ul class="member-list">
+			<h4>Values:</h4>
+			<li>{+ Render.values(data.symbol.values) +}</li>
+		</ul>
+	</if>
+	<if test="data.symbol.defaultValue">
+		<ul class="member-list">
+			<h4>Default:</h4>
+			<li><tt>{+ data.symbol.defaultValue +}</tt></li>
+		</ul>
+	</if>
+	<ul class="member-list">
+		<h4>Type:</h4>
+		<li>
+			{+new Link(true).toSymbol(data.symbol.type)+}
+		</li>
+	</ul>
+    {+ Render.options(data.symbol) +}
+	{+ Render.seeAlso(data.symbol) +}
+	{+ Render.examples(data.symbol.example) +}
+</div>
+</if>
+</div>
+</div>
