@@ -40,13 +40,17 @@ function Queue(){
 		return 0<a.length?a[b]:void 0
 	}
 };
+//server call
+
 
 function serverCall(){
-	var info = 
+	var info =  
 }
 function display_plastic(){
 	for(x in plasticQueue){
 		// use picture in html, and display
 		plasticQueue.peek();
 	}
+
+
 }
