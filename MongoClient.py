@@ -12,7 +12,7 @@ def GetFish():
     for document in fish_table:
         fishstr = pprint.pformat(document)
     with open('fish.json', 'w') as file:
-        write(fishstr, file)
+        file.write(fishstr, file)
     file.close()
     client.close()
 
