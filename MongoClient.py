@@ -7,7 +7,7 @@ def GetFish():
     client = MongoClient('127.0.0.1', 27017)
     db = client.poseidon
     collection = db.fish
-    fish_table = collection.find({"name":"Reef Shark"})
+    fish_table = collection.find({name:"reef"})
     fishstr = None
     for document in fish_table:
         print 'hi'
