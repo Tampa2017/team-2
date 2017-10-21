@@ -4,7 +4,7 @@ import json
 import pprint
 import random
 
-def GetFish(): #way to choose random fish
+def GetFish(): #way to choose random fish 
     choose = (random.randint(1, 100))%3
     name = ' '
     if choose == 1: name = 'Reef Shark'
