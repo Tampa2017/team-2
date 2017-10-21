@@ -4,7 +4,9 @@ from MongoClient import GetNotTrash
 
 import time
 
-GetFish()
-GetTrash()
-#GetNotTrash()
-time.sleep(15) 
+while(true):
+
+    GetFish()
+    GetTrash()
+    #GetNotTrash()
+    time.sleep(15)

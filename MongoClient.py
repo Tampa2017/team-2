@@ -44,7 +44,7 @@ def GetTrash():
 
     for document in trash_table:
         trashstr = pprint.pformat(document)
-        print type(trashstr)
+        #print type(trashstr)
     with open('trash.json', 'w') as file:
         file.write(trashstr)
     file.close()
