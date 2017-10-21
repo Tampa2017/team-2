@@ -12,7 +12,7 @@ def GetFish():
     for document in fish_table:
         fishstr = pprint.pformat(document)
     with open('fish.json', 'w') as file:
-        file.write(fishstr, file)
+        file.write(fishstr)
     file.close()
     client.close()
 
@@ -29,7 +29,7 @@ def GetTrash():
     collection = db.items.negative
     trash_table = collection.find_one({"name":"bottle"})
     with open('trash.json', 'w') as file:
-        json.dump(trash_table, file)
+        json.dump(trash_table)
     file.close()
 
     #we can store images on our server and just send the link from the db
