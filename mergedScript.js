@@ -40,9 +40,19 @@ function spawn(){   //fix
 		display(fish);
 	}
 }
-function executeStimulus(){
+function executeStimulus(json){
+var object = parser(json);
+var name = object[0];
+while(health_level>0 && health_level<=10){
 
-	//test if stimulus is good or bad to dequeue
+	if(name == )
+}
+
+
+
+
+//edits the value of the health levels
+
 }
 function Queue(){   // queue to hold fish
 	var a=[], b=0;
