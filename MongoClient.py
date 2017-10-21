@@ -33,12 +33,12 @@ def GetTrash():
     client = MongoClient('127.0.0.1', 27017)
     choose = (random.randint(1, 100)) % 3
     name = ' '
-    if choose == 1: name = 'Plastic Bottle'
+    if choose == 1: name = 'Plastic Bottles'
     if choose == 2: name = 'Plastic Bag'
     else: name = 'Fishing Net'
     db = client.Poseidon
     collection = db.items.negative
-    trash_table = collection.find({"name": name})
+    trash_table = collection.find({'Plastic Bottles': name})
     trashstr = None
     for document in trash_table:
         trashstr = pprint.pformat(document)
