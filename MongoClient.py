@@ -10,7 +10,7 @@ def GetFish():
     fish_table = collection.find({"name":"Reef Shark"})
     fishstr = None
     for document in fish_table:
-        print(document)
+        print document
         #fishstr = pprint.pformat(document)
     with open('fish.json', 'w') as file:
         json.dump(fishstr, file)
