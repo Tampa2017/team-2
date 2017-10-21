@@ -5,7 +5,7 @@ for(int i = 0; i < health_level; i++){
 	var data = serverCall();
 	var fish = {name: name, text_details: details, image: image};
 }
-var fishQueue = Queue(); // different name and details for each fish. query server
+var fishQueue = Queue(); // different name and details for each fish. query server 
 
 function setFish(health_level, name, details, image){  // health_level, name, and details come from server
 	for(int i = 0; i < health_level; i++){
