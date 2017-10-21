@@ -5,7 +5,7 @@ def GetFish():
     client = MongoClient('172.31.50.92', 27017)
     db = client.Poseidon
     collection = db.fish
-    fish_table = collection.find_one({"name":"Reef Shark"})
+    fish_table = collection.find({"name":"Reef Shark"})
     print fish_table
     with open('fish.json', 'w') as file:
         json.dump(fish_table, file)
