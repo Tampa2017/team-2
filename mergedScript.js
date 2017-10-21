@@ -1,22 +1,38 @@
 // all includes in html file, must call jquery before calling scripts 
 
-var health_level = 10;     
-var fishQueue = Queue(); // different name and details for each fish. query server
-var stimulusQueue = Queue();
+<<<<<<< HEAD
+var health_level = 10;  //incremented by good stimulus, decremented by bad 
 
-function setAssets(health_level, name, details, image){  // health_level, name, and details come from server
+=======
+var health_level = 10;     
+>>>>>>> 72b470dd79f026ac05f504b4beb2b566af97bda8
+var fishQueue = Queue(); // different name and details for each fish. query server
+var negstimulusQueue = Queue();
+var posstimulusQueue = Queue();
+
+function setAssets(name, details, image){  
 	for(int i = 0; i < health_level; i++){
 
-	var fishData = serverCall(); //read json 
+	var fishData = serverCall(); //read json, should pass tag
+	//parse json  
 	var fish = {name: name, text_details: details, image: image};
 	fishQueue.enqueue(fish);
-	var stimulusData = serverCall(); //read json
-	var stimulus = {name: name; text_details: details, image: image};
-	stimulusQueue.enqueue(fish); 
+//-----
+	var posstimulusData = serverCall(); //read json send pos tag
+	//parse json
+	var posstimulus = {name: name; text_details: details, image: image};
+	posstimulusQueue.enqueue(posstimulus); 
+//-----
+    var negstimulusData = serverCall(); //read json send neg tag
+	//parse json
+	var negstimulus = {name: name; text_details: details, image: image};
+	negstimulusQueue.enqueue(negstimulus);
 
 	}
 } 
-
+function executeStimulus(){
+	//test if stimulus is good or bad to dequeue
+}
 function Queue(){   // queue to hold fish
 	var a=[], b=0;
 	this.getLength=function(){
@@ -40,17 +56,15 @@ function Queue(){   // queue to hold fish
 	};
 };
 function serverCall(){
-     $.get("172.31.50.92", function(data){
-     alert("Data: " + data + "\nStatus: " + status);
+     $.get("172.31.50.92", callback(data){
       });
 }
 function callback(data){
 	return data;
 }
 function display(queue){
-	for(x in fishQueue){
 		// use picture in html, and display
 		fishQueue.peek();
-		stimulusQueue.peek();
+		negstimulusQueue.peek(); //may not be right
+		posstimulusQueue.peek(); 
 	}
-}
