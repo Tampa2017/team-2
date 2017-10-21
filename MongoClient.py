@@ -46,7 +46,7 @@ def GetTrash():
         print "ok"
         print type(trashstr)
     with open('trash.json', 'w') as file:
-        file.write(trashstr)
+        #file.write(trashstr)
     file.close()
     client.close()
 
