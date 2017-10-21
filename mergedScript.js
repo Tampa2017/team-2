@@ -9,7 +9,13 @@ var health_level = 10;
 var fishQueue = Queue(); // different name and details for each fish. query server
 var negstimulusQueue = Queue(); 
 var posstimulusQueue = Queue();
-var json = '{ "name":"John", "age":30, "city":"New York"}';
+var json = '{ "name":"fish", "description":"big fish", "image":"big image"}';
+ function parser(json){
+ 	var obj = JSON.parse(json);
+ 	var attributes = [obj.name, obj.description, obj.image];
+ 	return attributes;
+ }
+
 function setAssets(name, details, image){  
 	for(int i = 0; i < health_level; i++){
 
