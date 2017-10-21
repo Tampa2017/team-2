@@ -1,15 +1,20 @@
-var fish = setFish(health_level, name, details); 
+
+//handle health_level locally 
+for(int i = 0; i < health_level; i++){
+	serverCall();
+	var fish = {name: name, text_details: details, image: image};
+}
 var fishQueue = Queue(); // different name and details for each fish. query server
 
-function setFish(health_level, name, details){
+function setFish(health_level, name, details, image){  // health_level, name, and details come from server
 	for(int i = 0; i < health_level; i++){
-		var fish = {name: name, text_details: details};
-		console.log(fish);
+		var fish = {name: name, text_details: details, image: image};
+		fishQueue.enqueue(fish); //enqueue
 	}
 } 
 // queue to hold fish
 function Queue(){
-	var a=[],b=0;
+	var a=[], b=0;
 	this.getLength=function(){
 		return a.length-b
 	};
@@ -29,8 +34,14 @@ function Queue(){
 		return 0<a.length?a[b]:void 0
 	}
 };
+function serverCall(){
+	var info = 
+}
 function display_fish(){
-	//func to display fish
+	for(x in fishQueue){
+		// use picture in html, and display
+		fishQueue.peek();
+	}
 }
 
 
