@@ -1,0 +1,5 @@
+We had issues connecting to our mongo database. An instance was running that needed to be killed and couldn't be killed without sudo access.
+This blocked us from continuing in the same direction with use of the database as a way to get the necessary information to the webpage. 
+We then shifted to storing a small amount of data in the same directory as all the code so the resources could just be loaded and called upon locally. 
+This is less scalable and forced us to invest all of our time and effort into the html/css of the project, but was the only workaround for our blocker until 
+we could get help.

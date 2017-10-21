@@ -3,6 +3,7 @@ from pymongo import MongoClient
 import json
 import pprint
 def GetFish():
+    pymongo.connection('localhost', 27017)
     client = MongoClient('127.0.0.1', 27017)
     db = client.Poseidon
     collection = db.fish
