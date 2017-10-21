@@ -12,7 +12,7 @@ function createplastic(health_level, name, details){
 }
 
 
-function removeplastic(health_level, name, details){
+function removeplastic(health_level, name, details){  
 	plasticQueue.dequeue();
 	health_level++;
 }
