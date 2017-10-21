@@ -2,8 +2,10 @@ import pymongo
 from pymongo import MongoClient
 import json
 import pprint
+import random
+
 def GetFish(): #way to choose random fish
-    choose = (100 * random())%3
+    choose = (random.randint(1, 100))%3
     name = ' '
     if choose == 1: name = 'Reef Shark'
     if choose == 2: name = 'Great White Shark'
@@ -29,7 +31,7 @@ def GetFish(): #way to choose random fish
 
 def GetTrash():
     client = MongoClient('127.0.0.1', 27017)
-    choose = (100 * random()) % 3
+    choose = (random.randint(1, 100)) % 3
     name = ' '
     if choose == 1: name = 'Plastic Bottle'
     if choose == 2: name = 'Plastic Bag'
@@ -51,7 +53,7 @@ def GetTrash():
     # print statement for testing
     #Post
 
-def GetNotTrash():
+def GetNotTrash(): #needs to be finished
     client = MongoClient('127.0.0.1', 27017)
     db = client.Poseidon
     collection = db.items.positive
