@@ -39,7 +39,7 @@ def GetTrash():
     db = client.Poseidon
     collection = db.items
     collection = collection.negative
-    trash_table = collection.find({'name': 'Plastic Bottles'})
+    trash_table = collection.find({'name': name})
     trashstr = None
 
     for document in trash_table:
