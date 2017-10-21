@@ -39,13 +39,14 @@ def GetTrash():
     db = client.Poseidon
     collection = db.items
     collection = collection.negative
-    trash_table = collection.find({'Plastic Bottles': name})
+    trash_table = collection.find({'name': 'Plastic Bottles'})
     trashstr = None
+
     for document in trash_table:
         trashstr = pprint.pformat(document)
         print type(trashstr)
     with open('trash.json', 'w') as file:
-        json.dump(file, trashstr)
+        file.write(trashstr)
     file.close()
     client.close()
 
@@ -70,4 +71,5 @@ def GetNotTrash(): #needs to be finished
     # print statement for testing
     # Post
 
+GetTrash()
 
