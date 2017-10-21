@@ -19,7 +19,7 @@ def GetFish(): #way to choose random fish
         fishstr = pprint.pformat(document)
     with open('fish.json', 'w') as file:
         file.write(fishstr) #worksssss
-    file.close()
+    #file.close()
     client.close()
 
     #we can store images on our server and just send the link from the db
@@ -47,7 +47,9 @@ def GetTrash():
         print type(trashstr)
     with open('trash.json', 'w') as file:
         #file.write(trashstr)
-    file.close()
+        x = 2 + 2
+
+    #file.close()
     client.close()
 
     #we can store images on our server and just send the link from the db
@@ -70,4 +72,6 @@ def GetNotTrash(): #needs to be finished
     #toPost = trash_table[arr]
     # print statement for testing
     # Post
+
+GetTrash()
 
