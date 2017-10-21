@@ -6,6 +6,7 @@ def GetFish():
     db = client.Poseidon
     collection = db.fish
     fish_table = collection.find_one({"name":"Reef Shark"})
+    print fish_table
     with open('fish.json', 'w') as file:
         json.dump(fish_table, file)
     file.close()
