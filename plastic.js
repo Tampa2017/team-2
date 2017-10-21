@@ -1,7 +1,8 @@
 var plastic = plastic(health_level, name, details);
 var plasticQueue =  Queue();
 function plastic(health_level, name, details){	
-		var plastic = {name: name, text_details: details};		
+		var plastic = {name: name, text_details: details};	
+			plasticQueue.enqueue(plastic);
 }
 
 function createplastic(health_level, name, details){
@@ -12,11 +13,12 @@ function createplastic(health_level, name, details){
 
 
 function removeplastic(health_level, name, details){
-	
+	plasticQueue.dequeue();
+	health_level++;
 }
 
 
-// queue to hold fish
+// queue to hold plastic
 function Queue(){
 	var a=[],b=0;
 	this.getLength=function(){
@@ -38,3 +40,13 @@ function Queue(){
 		return 0<a.length?a[b]:void 0
 	}
 };
+
+function serverCall(){
+	var info = 
+}
+function display_plastic(){
+	for(x in plasticQueue){
+		// use picture in html, and display
+		plasticQueue.peek();
+	}
+}
