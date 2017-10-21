@@ -1,12 +1,13 @@
 import pymongo
 from pymongo import MongoClient
+import json
 def GetFish():
     client = MongoClient('172.31.50.92', 27017)
     db = client.Poseidon
     collection = db.fish
     fish_table = collection.find_one({"name":"fish"})
-    file = open('fish.json', 'w')
-    file.write(fish_table)
+    with open('fish.json', 'w') as file:
+        json.dump(fish_table, file)
     file.close()
 
     #we can store images on our server and just send the link from the db
@@ -21,8 +22,8 @@ def GetTrash():
     db = client.Poseidon
     collection = db.items.negative
     trash_table = collection.find_one({"name":"bottle"})
-    file = open('trash.json', 'w')
-    file.write(trash_table)
+    with open('trash.json', 'w') as file:
+        json.dump(trash_table, file)
     file.close()
 
     #we can store images on our server and just send the link from the db
@@ -36,8 +37,8 @@ def GetNotTrash():
     db = client.Poseidon
     collection = db.items.positive
     good_table = collection.find_one({"name":"reef"})
-    file = open('good.json', 'w')
-    file.write(good_tables)
+    with open('good.json', 'w') as file:
+        json.dump(good_table, file)
     file.close()
 
     # we can store images on our server and just send the link from the db
