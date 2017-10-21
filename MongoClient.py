@@ -37,11 +37,13 @@ def GetTrash():
     if choose == 2: name = 'Plastic Bag'
     else: name = 'Fishing Net'
     db = client.Poseidon
-    collection = db.items.negative
+    collection = db.items
+    collection = collection.negative
     trash_table = collection.find({'Plastic Bottles': name})
     trashstr = None
     for document in trash_table:
         trashstr = pprint.pformat(document)
+        print type(trashstr)
     with open('trash.json', 'w') as file:
         file.write(trashstr)
     file.close()
