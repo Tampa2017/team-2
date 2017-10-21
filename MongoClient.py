@@ -1,10 +1,9 @@
 import pymongo
 from pymongo import MongoClient
-
 def GetFish():
     client = MongoClient('172.31.50.92', 27017)
     collection = db.fish
-    fish_table = collection.find_one({"fish" : "fish1"})
+    fish_table = collection.find_one({"name":"fish"})
     file = open('fish.json', 'w')
     file.write(fish_table)
     file.close()
@@ -19,7 +18,7 @@ def GetFish():
 def GetTrash():
     client = MongoClient('172.31.50.92', 8080)
     collection = db.items.negative
-    trash_table = collection.find_one({"trash" : "bottle"})
+    trash_table = collection.find_one({"name":"bottle"})
     file = open('trash.json', 'w')
     file.write(trash_table)
     file.close()
@@ -33,7 +32,7 @@ def GetTrash():
 def GetNotTrash():
     client = MongoClient('172.31.50.92', 8080)
     collection = db.items.positive
-    good_table = collection.find_one({"good": "reef"})
+    good_table = collection.find_one({"name":"reef"})
     file = open('good.json', 'w')
     file.write(good_tables)
     file.close()
