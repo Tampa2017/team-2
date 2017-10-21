@@ -2,24 +2,14 @@
 
 //incremented by good stimulus, decremented by bad 
 
-var health_level = 10;     
+var health_level = 10;    
+var json = '{ "name":"fish", "description":"big fish", "image":"big image"}'; 
 var fishQueue = Queue(); // different name and details for each fish. query server
 var negstimulusQueue = Queue(); 
 var posstimulusQueue = Queue();
-<<<<<<< HEAD
-var json = '{ "name":"fish", "description":"big fish", "image":"big image"}';
- function parser(json){
- 	var obj = JSON.parse(json);
- 	var attributes = [obj.name, obj.description, obj.image];
- 	return attributes;
- }
-
-=======
 setAssets();
 
 //------------funcs
-
->>>>>>> 7c764e61bc70e58d46a33f89e15b2469a94cb826
 function setAssets(name, details, image){  
 	for(int i = 0; i < health_level; i++){
 
@@ -40,10 +30,15 @@ function setAssets(name, details, image){
 
 	}
 } 
-function spawn(){
+function spawn(){   //fix 
 	//every 15 sec trash
+	setInterval(display(negstimulus),15000);	
 	//every 30 sec good 
+	setInterval(display(posstimulus), 30000);
 	//health and fish 
+	for(int i = 0; i < health_level; i++){
+		display(fish);
+	}
 }
 function executeStimulus(){
 
@@ -78,6 +73,11 @@ function serverCall(){
 function callback(data){
 	return data;
 }
+ function parser(json){
+ 	var obj = JSON.parse(json);
+ 	var attributes = [obj.name, obj.description, obj.image];
+ 	return attributes;
+ }
 function display(queue){
 		// use picture in html, and display method
 		fishQueue.peek();
