@@ -13,17 +13,17 @@ setAssets();
 function setAssets(name, details, image){  
 	for(int i = 0; i < health_level; i++){
 
-	var fishData = serverCall(); //read json, should pass tag
+	var fishData = serverCall("fish"); //read json, should pass tag
 	parser(fishData);
 	var fish = {name: name, text_details: details, image: image};
 	fishQueue.enqueue(fish);
 //----- 
-	var posstimulusData = serverCall(); //read json send pos tag
+	var posstimulusData = serverCall("positive"); //read json send pos tag
 	parser(posstimulusData);
 	var posstimulus = {name: name; text_details: details, image: image};
 	posstimulusQueue.enqueue(posstimulus); 
 //-----
-    var negstimulusData = serverCall(); //read json send neg tag
+    var negstimulusData = serverCall("negative"); //read json send neg tag
 	parser(negstimulusData);
 	var negstimulus = {name: name; text_details: details, image: image};
 	negstimulusQueue.enqueue(negstimulus);
@@ -32,24 +32,28 @@ function setAssets(name, details, image){
 } 
 function spawn(){   //fix 
 	//every 15 sec trash
-	setInterval(display(negstimulus),15000);	
+	setInterval(display(negstimulusQueue.peek()),15000);
+	executeStimulus(negstimulusQueue.peek());	
 	//every 30 sec good 
-	setInterval(display(posstimulus), 30000);
+	setInterval(display(posstimulusQueue.peek()), 30000);
+	executeStimulus(posstimulusQueue.peek());
 	//health and fish 
 	for(int i = 0; i < health_level; i++){
 		display(fish);
 	}
 }
-function executeStimulus(json){
+function executeStimulus(){
+    
+
+
+
+
 var object = parser(json);
 var name = object[0];
 while(health_level>0 && health_level<=10){
 
 	if(name == )
 }
-
-
-
 
 //edits the value of the health levels
 
@@ -76,8 +80,8 @@ function Queue(){   // queue to hold fish
 		return 0<a.length?a[b]:void 0
 	};
 };
-function serverCall(){
-     $.get("172.31.50.92", callback(data){ //revise
+function serverCall(tag){
+     $.get("172.31.50.92", tag, callback(data){ //revise
       });
 }
 function callback(data){
@@ -88,9 +92,14 @@ function callback(data){
  	var attributes = [obj.name, obj.description, obj.image];
  	return attributes;
  }
-function display(queue){
+function display(data){
 		// use picture in html, and display method
 		fishQueue.peek();
-		negstimulusQueue.peek(); //judge 
+		fishQueue.dequeue();
+
+		negstimulusQueue.peek();
+		negstimulusQueue.dequeue();
+
 		posstimulusQueue.peek(); 
+		posstimulusQueue.dequeue();
 	}
