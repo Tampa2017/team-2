@@ -1,3 +1,3 @@
-from MongClient import GetTrash
+from MongoClient import GetTrash
 
 GetTrash()
