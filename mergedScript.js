@@ -1,14 +1,14 @@
 // all includes in html file, must call jquery before calling scripts 
 
-<<<<<<< HEAD
-var health_level = 10;  //incremented by good stimulus, decremented by bad 
+//incremented by good stimulus, decremented by bad 
 
-=======
 var health_level = 10;     
->>>>>>> 72b470dd79f026ac05f504b4beb2b566af97bda8
 var fishQueue = Queue(); // different name and details for each fish. query server
 var negstimulusQueue = Queue();
 var posstimulusQueue = Queue();
+setAssets();
+
+//------------funcs
 
 function setAssets(name, details, image){  
 	for(int i = 0; i < health_level; i++){
@@ -30,7 +30,13 @@ function setAssets(name, details, image){
 
 	}
 } 
+function spawn(){
+	//every 15 sec trash
+	//every 30 sec good 
+	//health and fish 
+}
 function executeStimulus(){
+
 	//test if stimulus is good or bad to dequeue
 }
 function Queue(){   // queue to hold fish
@@ -56,15 +62,15 @@ function Queue(){   // queue to hold fish
 	};
 };
 function serverCall(){
-     $.get("172.31.50.92", callback(data){
+     $.get("172.31.50.92", callback(data){ //revise
       });
 }
 function callback(data){
 	return data;
 }
 function display(queue){
-		// use picture in html, and display
+		// use picture in html, and display method
 		fishQueue.peek();
-		negstimulusQueue.peek(); //may not be right
+		negstimulusQueue.peek(); //judge 
 		posstimulusQueue.peek(); 
 	}
