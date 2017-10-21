@@ -3,7 +3,7 @@
 //incremented by good stimulus, decremented by bad 
 
 var health_level = 10;    
-var json = '{ "name":"fish", "description":"big fish", "image":"big image"}'; 
+var json = '{ "name":"fish", "description":"big fish", "image":"big image"}';  
 var fishQueue = Queue(); // different name and details for each fish. query server
 var negstimulusQueue = Queue(); 
 var posstimulusQueue = Queue();
@@ -26,7 +26,7 @@ function setAssets(name, details, image){
     var negstimulusData = serverCall("negative"); //read json send neg tag
 	parser(negstimulusData);
 	var negstimulus = {name: name; text_details: details, image: image};
-	negstimulusQueue.enqueue(negstimulus);
+	negstimulusQueue.enqueue(negstimulus); 
 
 	}
 } 

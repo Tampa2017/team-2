@@ -8,6 +8,7 @@
     <script type="text/javascript" src="../../dist/paper-full.js"></script>
     <progress id="health" value="100" max="100"></progress>
     <script type="text/paperscript" canvas="canvas">
+    
         // Code ported to Paper.js from http://the389.com/9/1/
         // with permission.
     
@@ -46,7 +47,7 @@
 
         function createPath(strength) {
             var path = new Path({
-                fillColor: 'aqua'
+                fillColor: 'blue'
             });
             springs = [];
             for (var i = 0; i <= values.amount; i++) {
@@ -117,8 +118,27 @@
             }
         }
     </script>
+    <script type="text/javascript">
+        function sizeSpacer(spacer) {
+    spacer.style.height = 0;
+    var container = spacer.parentNode;
+    var img = spacer.nextElementSibling || spacer.nextSibling;
+    var lastContentNode = container.children[container.children.length - 1];
+    var h = Math.max(0, container.clientHeight - img.clientHeight);
+    spacer.style.height = h + "px";
+    while (h > 0 && img.getBoundingClientRect().bottom > lastContentNode.getBoundingClientRect().bottom) {
+        spacer.style.height = --h + "px";
+    }
+}
+    </script>
 </head>
-<body>
-    <canvas id="canvas" resize hidpi="off"></canvas>
+<body style ="background-color: aqua">
+ <img style="height:66px; width:200px; position: absolute; right:0px; bottom:0px"; src="goblin_shark.png"></img>
+ <img style="height:66px; width:200px; position: absolute; right:300px; bottom:100px"; src="great_white.png"></img>
+ <img style="height:66px; width:200px; position: absolute; right:500px; bottom:200px"; src="reef_shark.png"></img>
+   <canvas id="canvas" resize hidpi="off"></canvas>
+    <div>
+    </div>
 </body>
 </html>
+S
