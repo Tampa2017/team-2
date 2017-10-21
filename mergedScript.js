@@ -44,15 +44,6 @@ function spawn(){   //fix
 }
 function executeStimulus(){
     
-
-
-
-
-var object = parser(json);
-var name = object[0];
-while(health_level>0 && health_level<=10){
-
-	if(name == )
 }
 
 //edits the value of the health levels
