@@ -7,7 +7,7 @@ def GetFish():
     db = client.Poseidon
     collection = db.fish
     fish_table = collection.find({"name":"Reef Shark"})
-    fishstr = none
+    fishstr = None
     for document in fish_table:
         fishstr = json.loads(document)
     with open('fish.json', 'w') as file:
