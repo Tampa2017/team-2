@@ -17,7 +17,8 @@ def GetFish(): #way to choose random fish
     fishstr = None
     for document in fish_table:
         fishstr = pprint.pformat(document)
-    with open('fish.json', 'w', 'utf-8') as file:
+    with open('fish.json', 'w') as file:
+        fishstr.encode('utf-8')
         file.write(fishstr) #worksssss
     file.close()
     client.close()
@@ -45,7 +46,8 @@ def GetTrash():
     for document in trash_table:
         trashstr = pprint.pformat(document)
         #print type(trashstr)
-    with open('trash.json', 'w', 'utf-8') as file:
+    with open('trash.json', 'w') as file:
+        trashstr.encode('utf-8')
         file.write(trashstr)
     file.close()
     client.close()
