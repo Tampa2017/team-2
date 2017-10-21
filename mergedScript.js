@@ -7,7 +7,7 @@ var health_level = 10;  //incremented by good stimulus, decremented by bad
 var health_level = 10;     
 >>>>>>> 72b470dd79f026ac05f504b4beb2b566af97bda8
 var fishQueue = Queue(); // different name and details for each fish. query server
-var negstimulusQueue = Queue();
+var negstimulusQueue = Queue(); 
 var posstimulusQueue = Queue();
 
 function setAssets(name, details, image){  
