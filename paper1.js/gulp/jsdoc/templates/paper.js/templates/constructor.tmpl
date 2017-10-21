@@ -1,0 +1,16 @@
+<if test="defined(data.symbol.groupTitle)"><h3>{+data.symbol.groupTitle+}</h3></if>
+<div id="{+ data.id +}" class="member">
+<div class="member-link">
+<a name="{+ data.id +}" href="#{+ data.id +}"><tt><b>{+ data.name +}</b>{+ data.signature +}</tt></a>
+</div>
+<div class="member-description hidden">
+<div class="member-text">
+    {+ data.description +}
+    {+ Render.options(data.symbol) +}
+    {+ Render.parameters(data.symbol) +}
+    {+ Render.returns(data.symbol) +}
+    {+ Render.seeAlso(data.symbol) +}
+    {+ Render.examples(data.symbol.example) +}
+</div>
+</div>
+</div>

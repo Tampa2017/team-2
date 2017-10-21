@@ -5,9 +5,11 @@ def GetFish():
     client = MongoClient('172.31.50.92', 27017)
     db = client.Poseidon
     collection = db.fish
-    fish_table = collection.find_one({"name":"Reef Shark"})
+    fish_table = collection.find({"name":"Reef Shark"})
+    for document in fish_table:
+        fishstr = pprint.format(document)
     with open('fish.json', 'w') as file:
-        json.dump(fish_table, file)
+        json.dump(fishstr, file)
     file.close()
 
     #we can store images on our server and just send the link from the db
@@ -28,7 +30,7 @@ def GetTrash():
 
     #we can store images on our server and just send the link from the db
     #arr = {'name', 'description', 'image'}
-    toPost = trash_table[arr]
+    #toPost = trash_table[arr]
     # print statement for testing
     #Post
 
@@ -43,7 +45,7 @@ def GetNotTrash():
 
     # we can store images on our server and just send the link from the db
     #arr = {'name', 'description', 'image'}
-    toPost = trash_table[arr]
+    #toPost = trash_table[arr]
     # print statement for testing
     # Post
 
