@@ -3,7 +3,7 @@ from pymongo import MongoClient
 import json
 import pprint
 def GetFish():
-    client = MongoClient('192.168.56.1', 27017)
+    client = MongoClient('127.0.0.1', 27017)
     db = client.Poseidon
     collection = db.fish
     fish_table = collection.find({"name":"Reef Shark"})
