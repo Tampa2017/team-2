@@ -1,6 +1,8 @@
 import pymongo
 from pymongo import MongoClient
 
+
+
 def GetFish():
     client = MongoClient('172.31.50.92', 27017)
     collection = db.fish
