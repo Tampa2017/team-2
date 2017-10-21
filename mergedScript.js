@@ -1,6 +1,6 @@
 // all includes in html file, must call jquery before calling scripts 
 
-var health_level = 10; 
+var health_level = 10;     
 var fishQueue = Queue(); // different name and details for each fish. query server
 var stimulusQueue = Queue();
 
