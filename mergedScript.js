@@ -14,17 +14,17 @@ function setAssets(name, details, image){
 	for(int i = 0; i < health_level; i++){
 
 	var fishData = serverCall(); //read json, should pass tag
-	//parse json  
+	parser(fishData);
 	var fish = {name: name, text_details: details, image: image};
 	fishQueue.enqueue(fish);
-//-----
+//----- 
 	var posstimulusData = serverCall(); //read json send pos tag
-	//parse json
+	parser(posstimulusData);
 	var posstimulus = {name: name; text_details: details, image: image};
 	posstimulusQueue.enqueue(posstimulus); 
 //-----
     var negstimulusData = serverCall(); //read json send neg tag
-	//parse json
+	parser(negstimulusData);
 	var negstimulus = {name: name; text_details: details, image: image};
 	negstimulusQueue.enqueue(negstimulus);
 
