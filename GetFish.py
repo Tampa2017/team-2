@@ -1,3 +1,4 @@
-from MongClient import GetFish
+from MongoClient import GetFish
+
 
 GetFish()
