@@ -8,7 +8,7 @@ def GetFish(): #way to choose random fish
     choose = (random.randint(1, 100))%3
     name = ' '
     if choose == 1: name = 'Reef Shark'
-    if choose == 2: name = 'Great White Shark'
+    elif choose == 2: name = 'Great White Shark'
     else: name = 'Goblin Shark'
     client = MongoClient('127.0.0.1', 27017)
     db = client.Poseidon
@@ -19,7 +19,7 @@ def GetFish(): #way to choose random fish
         fishstr = pprint.pformat(document)
     with open('fish.json', 'w') as file:
         file.write(fishstr) #worksssss
-    #file.close()
+    file.close()
     client.close()
 
     #we can store images on our server and just send the link from the db
@@ -31,10 +31,10 @@ def GetFish(): #way to choose random fish
 
 def GetTrash():
     client = MongoClient('127.0.0.1', 27017)
-    choose = (random.randint(1, 100)) % 3
+    choose = (random.randint(1, 100))%3
     name = ' '
     if choose == 1: name = 'Plastic Bottles'
-    if choose == 2: name = 'Plastic Bag'
+    elif choose == 2: name = 'Plastic Bag'
     else: name = 'Fishing Net'
     db = client.Poseidon
     collection = db.items
@@ -43,13 +43,10 @@ def GetTrash():
     trashstr = None
     for document in trash_table:
         trashstr = pprint.pformat(document)
-        print "ok"
         print type(trashstr)
     with open('trash.json', 'w') as file:
-        #file.write(trashstr)
-        x = 2 + 2
-
-    #file.close()
+        json.dump(file, trashstr)
+    file.close()
     client.close()
 
     #we can store images on our server and just send the link from the db
@@ -73,5 +70,4 @@ def GetNotTrash(): #needs to be finished
     # print statement for testing
     # Post
 
-GetTrash()
 
