@@ -2,12 +2,26 @@ var health_level = 10;
 var fish; 
 var posstimulus; 
 var negstimulus;  
+
+var options = {
+    host: 'somesite.com',  
+    port: 443, //localhost 8888 or 8000
+};
+
 setAssets();
 spawn();
 
+ rest.getJSON(options, function(statusCode, result) {
+    res.statusCode = statusCode;
+    res.send(result);
+    headers:{
+    	"Connection: keep-alive"
+    }
+});
+
 function setAssets(name, details, image){  
 	for(var i = 0; i < health_level; i++){
-		var json = '{ "name":"fish", "description":"big fish", "image":"big image"}';  
+		var json = '{ "name":"fish", "description":"big fish", "image":"big image"}';  //dummy 
 		var fishData =  "dummy json"; //replace
 	    fish = objectbuild(parser(json));
 	//----- 
