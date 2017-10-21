@@ -1,7 +1,7 @@
 var plastic = plastic(health_level, name, details);
 var plasticQueue =  Queue();
 function plastic(health_level, name, details){	
-		var plastic = {name: name, text_details: details};	
+		var plastic = {name: name, text_details: details};	 
 			plasticQueue.enqueue(plastic);
 }
 

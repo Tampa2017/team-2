@@ -7,4 +7,4 @@ import time
 GetFish()
 GetTrash()
 #GetNotTrash()
-time.sleep(15)
+time.sleep(15) 
