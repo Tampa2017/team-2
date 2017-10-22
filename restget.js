@@ -1,4 +1,4 @@
-var http = require("http");
+var http = require("http");  //express application to map value
 /**
  * getJSON:  REST get request returning JSON object(s)
  * @param options: http options object
